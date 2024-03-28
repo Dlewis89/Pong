@@ -48,7 +48,7 @@ while game_is_on:
         scoreboard.l_point()
         ball.reset()
 
-    # Detects if left paddle scored
+    # Detects if right paddle scored
     if ball.xcor() < -380:
         scoreboard.r_point()
         ball.reset()
