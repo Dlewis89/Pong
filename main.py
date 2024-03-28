@@ -4,16 +4,25 @@ from actors.paddle import Paddle
 from actors.scoreboard import Scoreboard
 import time
 
-# Scren Setup
+# Screen Setup
 screen  = Screen()
 screen.bgcolor('black')
 screen.setup(width=800, height=600)
 screen.title('Pong')
 screen.tracer(0)
 
+# Get the screen boundaries based on turtle coordinate system
+TOP_SCREEN_BOUNDARY = screen.window_height() // 2 * -1 
+LEFT_SCREEN_BOUNDARY = screen.window_width() // 2 * -1
+RIGHT_SCREEN_BOUNDARY = screen.window_width() // 2
+BOTTOM_SCREEN_BOUNDARY = screen.window_height() // 2
+
+SCREEN_PADDLE_PADDING = 50
+
+
 # Initialing Actors
-l_paddle = Paddle(-350, 0)
-r_paddle = Paddle(350, 0)
+l_paddle = Paddle(LEFT_SCREEN_BOUNDARY + SCREEN_PADDLE_PADDING, 0)
+r_paddle = Paddle(RIGHT_SCREEN_BOUNDARY - SCREEN_PADDLE_PADDING, 0)
 ball = Ball(0, 0)
 scoreboard = Scoreboard()
 
@@ -36,7 +45,7 @@ while game_is_on:
     ball.move()
 
     # Detect collision with top and bottom wall
-    if ball.ycor() > 280 or ball.ycor() < -280:
+    if ball.ycor() > BOTTOM_SCREEN_BOUNDARY - ball.pensize() or ball.ycor() < TOP_SCREEN_BOUNDARY + ball.pensize():
         ball.bounce_y()
 
     # Detect collision with the Paddles
