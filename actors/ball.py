@@ -1,7 +1,7 @@
 from turtle import Turtle
 
 class Ball(Turtle):
-    def __init__(self, x, y):
+    def __init__(self, x = 0, y = 0):
         super().__init__()
         self.color('white')
         self.shape('circle')
