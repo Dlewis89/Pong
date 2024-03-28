@@ -10,7 +10,7 @@ $ git clone https://github.com/Dlewis89/pong.git
 $ cd pong
 ```
 
-Depending on your OS you can need to run a slightly different command
+Depending on your OS you may need to run a slightly different command to start the game.
 
 - Windows
     ```sh
