@@ -32,9 +32,6 @@ class TestBallMethods(unittest.TestCase):
 
     def test_ball_reset(self):
 
-        ball_x = self.ball.xcor()
-        ball_y = self.ball.ycor()
-
         self.ball.reset()
 
         self.assertEqual(self.ball.xcor(), 0)
